@@ -1,1 +1,12 @@
-/* You can add global styles to this file, and also import other style files */
+.widget {
+  min-width: 200px;
+  max-width: 300px;
+
+  padding: 5px;
+  margin: 10px;
+  border: 1px solid #ccc;
+}
+
+.rename-random-user.widget {
+  text-align: center;
+}

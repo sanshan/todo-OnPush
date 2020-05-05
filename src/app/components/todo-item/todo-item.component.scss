@@ -1,0 +1,15 @@
+.todo-item {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  border-bottom: 1px solid #eee;
+
+  .todo-item-text {
+    text-align: center;
+    padding: 3px 0 2px;
+  }
+}
+
+.todo-item.last {
+  border: none !important;
+}

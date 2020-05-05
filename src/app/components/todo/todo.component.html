@@ -1,0 +1,7 @@
+<div class="todo-list">
+  <app-todo-item *ngFor="let item of items; index as i; first as isFirst; last as isLast;"
+                 [place]="isFirst ? 'first' : isLast ? 'last' : undefined"
+                 [text]="item.login"
+  >
+  </app-todo-item>
+</div>

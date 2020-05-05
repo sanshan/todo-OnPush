@@ -2,8 +2,8 @@ import {ChangeDetectionStrategy, Component, OnInit} from '@angular/core';
 import {IUser} from "./models/user/user.model";
 import {Observable} from "rxjs";
 import {map} from "rxjs/operators";
+import {UsersService} from "./shared/services/users.service";
 import {Collection} from "./shared/models/collection/collection.model";
-import {USERS_MOCK_DATA} from "./_mock/users/users.mock";
 
 @Component({
   selector: 'app-root',
@@ -13,12 +13,16 @@ import {USERS_MOCK_DATA} from "./_mock/users/users.mock";
 })
 export class AppComponent implements OnInit {
 
-  usersCollection: Collection<IUser>;
-
   users$: Observable<IUser[]>;
 
+  constructor(private _u: UsersService) {
+  }
+
+  get usersCollection(): Collection<IUser> {
+    return this._u.usersCollection;
+  }
+
   ngOnInit(): void {
-    this.usersCollection = new Collection<IUser>(USERS_MOCK_DATA);
     this.users$ = this.usersCollection.items$.pipe(
       map((value) => Array.from(value).map((item) => item[1]))
     )
